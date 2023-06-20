@@ -1,0 +1,71 @@
+gui
+
+tkinter 임포트
+from tkinter import ttk
+
+객체 = tk.Tk( ) #기본 윈도우 객체
+
+root_win.mainloop( ) #이벤트 처리 시작 지시
+
+객체.title('제목')
+객체.geometry(' 창의 너비 x 창의 높이 플마 가로값 플마 세로값')
+.resizable(width = False, height = False)로 크기 고정 가능
+
+@버튼
+객체 = tk.Button(기본 윈도우 객체, text = ' ', 등등 각종 수치들)
+객체.pack( )을 해야 등장
+
+# ipadx/y = 값 텍스트 양 옆, 위까지의 공간을 기준으로 크기 확보
+# width, height = 값 고정된 크기 확보
+#fg='색' 글자색 bg='색' 배경색
+#command= 명령어
+
+@레이블
+tk.Label(각종 수치)
+#바꿀 객체.configure(바꾼 내용)
+
+@앤트리
+보통 한줄로 입력 받는 경우 사용
+tk변수객체이름 = StringVar( ) # 문자 변수 IntVar #정수 DoubleVar # 실수
+이름 = Entry(윈도우, textvariable=tk변수객체이름)
+변수객체이름.get( )은 입력 set( )은 출력
+
+@텍스트
+여러 줄 입력을 받음
+이름 = Text(윈도우, 폭, 높이, wrap=줄바꿈 방식) #tk.CHAR 문자 tk.WORD 단어
+
+@스크롤텍스트위젯
+텍스트와 사용법은 같음 지정 높이를 넘어가면 자동으로 스크롤 생성
+from tkinter import scrolledtext
+
+@체크 버튼 위젯
+다중 선택 버튼 생성
+tk변수객체 = IntVar( ) #정수형
+객체이름 = CheckButton(윈도우, 내용, variable=tk변수객체, 명령)
+# 1은 체크 상태, 0은 해제 상태로 저장됨
+
+@메세지 박스
+messagebox.showinfo('제목', '알릴 내용')
+
+@라디오 버튼 
+tk변수객체 = IntVar( )
+객체이름 = Radiobutton(윈도우, 내용, variable=tk변수객체, value=각버튼식별값,명령)
+
+@위젯의 배치
+1. pack( ) 메서드
+호출 순서대로 배치, 방향은 객체이름.pack(side=tk.TOP/BOTTOM/LEFT/RIGHT)으로 지정
+여백 지정 pad는 위젯부터 다음 위젯까지 ipad는 위젯부터 안쪽 내용까지
+fill =tk.X/Y 완전히 맞춤
+
+2. prid( ) 메서드
+왼쪽 위부터 0,0 column = x좌표 row = y좌표
+한계점 가장 큰 위젯에 셀을 배정함
+sticky = 정렬방향 으로 정렬가능 
+column, row 뒤에 span = 붙일 셀 개수를 통해 셀을 합칠 수 있음.
+
+3. place( ) 메서드
+화면 좌측 상단을 원점으로 절대 좌표값을 지정
+
+Frame 컨테이너를 통해 윈도우 속 그룹을 묶을 수 있다.
+프레임객체이름 = ttk.Frame(윈도우)
+위젯객체 = ttk.Button(프레임, 내용)
